@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Malicious URL Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">
+                <img src="{{ url_for('static', filename='images/log.png') }}" alt="URL Detector Logo" class="logo-img">
+                URL Detector
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="about-content">
+                <h1>🛡️ About This Project</h1>
+                <h2>Malicious URL Detector</h2>
+                <p>The Malicious URL Detector is an intelligent cybersecurity tool designed to automatically classify URLs into one of four categories: Benign, Malware, Phishing, or Defacement. Its purpose is to enhance online safety by detecting and blocking malicious websites before they can cause harm.</p>
+
+                <section class="about-section">
+                    <h3>🔍 Objective</h3>
+                    <p>The primary goal of this project is to leverage machine learning and natural language processing (NLP) techniques to analyze the structure and patterns of URLs in order to identify potentially harmful links. This tool can be integrated into browser extensions, email filtering systems, or security software.</p>
+                </section>
+
+                <section class="about-section">
+                    <h3>🧠 How It Works</h3>
+                    <ul>
+                        <li><strong>Feature Extraction:</strong> Each URL is preprocessed and transformed into numerical features. This includes length analysis, use of suspicious characters, presence of IP addresses, encoding patterns, and domain-related features.</li>
+                        <li><strong>Model Training:</strong> The system is trained using a labeled dataset containing real-world examples of benign and malicious URLs. Machine learning algorithms such as Random Forest, SVM, or XGBoost are used to build an effective classifier.</li>
+                        <li><strong>Prediction:</strong> Given any URL, the model predicts the category of the URL in real-time, helping users avoid harmful interactions online.</li>
+                    </ul>
+                </section>
+
+                <section class="about-section">
+                    <h3>📂 URL Categories</h3>
+                    <ul class="categories">
+                        <li>✅ <strong>Benign:</strong> Safe and trusted websites.</li>
+                        <li>🚫 <strong>Malware:</strong> Sites that deliver or host malicious software.</li>
+                        <li>🎣 <strong>Phishing:</strong> Imitation sites that attempt to steal sensitive information.</li>
+                        <li>🖼️ <strong>Defacement:</strong> Sites altered by attackers to display unauthorized content.</li>
+                    </ul>
+                </section>
+
+                <section class="about-section">
+                    <h3>🛠️ Technologies Used</h3>
+                    <ul class="tech-list">
+                        <li>Python</li>
+                        <li>Scikit-learn / XGBoost</li>
+                        <li>URL parsing and regex</li>
+                        <li>Pandas & NumPy</li>
+                        <li>Streamlit (for live demo, if applicable)</li>
+                    </ul>
+                </section>
+
+                <section class="about-section">
+                    <h3>📌 Applications</h3>
+                    <ul class="applications">
+                        <li>Email security systems</li>
+                        <li>Web browsers and plugins</li>
+                        <li>Corporate firewalls</li>
+                        <li>Cybersecurity awareness training tools</li>
+                    </ul>
+                </section>
+
+                <section class="about-section">
+                    <h3>👩‍💻 Developed by</h3>
+                    <ul class="applications">
+                    <li>BADEREDDINE Haitham</li>
+                
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+</body>
+</html> 

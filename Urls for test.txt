@@ -1,0 +1,30 @@
+# Benign URLs 
+https://www.linkedin.com/in/hassiba-bdrd/profile/details/contact-info/
+https://github.com/search?q=malicious+url+detector&type=repositories
+https://www.coursera.org/learn/machine-learning?authMode=login
+
+# Malware URLs 
+http://192.168.0.102:8080/download?file=worm.exe
+http://secure.updatesoftware.win32api.top/files/setup.exe?refid=9853asd
+http://abc.def.ghi.jkl.xyz/redirect/index.php?target=http%3A%2F%2Fmalicious.download%2Fevil.exe
+http://0xC0A80001/download.php
+http://cloud-sync-free.biz/drive/docs/GoogleDriveSetup.exe
+
+# Phishing URLs
+http://accounts.google.com.secure-loginverify.com/login?user=abc@gmail.com
+http://facebook.com-login-security-support.com/authenticate
+http://bankofamerica.login-update-service.cc/session/recover.html
+http://dropbox.com.file-storage.secure-access.cc/docs/login.html
+http://login.microsoftaccount.security-check.live123.org/portal
+
+# Defacement URLs 
+
+http://university.edu/home.php?redirect=we_are_anon.html
+http://www.zone-h.org/mirror/id/12845332
+http://online-library.org/index.php?page=admin&access=guest
+http://school-portal.academy/info.php?ref=anonymous_message.html
+http://deface.org/archive/site?id=019283
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+
+
+

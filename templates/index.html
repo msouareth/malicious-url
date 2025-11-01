@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malicious URL Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">
+                <img src="{{ url_for('static', filename='images/log.png') }}" alt="URL Detector Logo" class="logo-img">
+                URL Detector
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="url-checker">
+                <h1>Check URL Safety</h1>
+                <form class="url-form" action="/check" method="POST">
+                    <input type="text" name="url" class="url-input" placeholder="Enter URL to check..." required>
+                    <button type="submit" class="check-button">Check URL</button>
+                </form>
+                <div id="result" class="result">
+                    <div class="result-content"></div>
+                    <div class="threat-type"></div>
+                    <div class="confidence"></div>
+                </div>
+            </div>
+
+            <div class="features">
+                <div class="feature-card">
+                    <h3>Real-time Analysis</h3>
+                    <p>Get instant results with our advanced URL analysis system.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>High Accuracy</h3>
+                    <p>96% accurate detection of malicious URLs.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Easy to Use</h3>
+                    <p>Simple interface for quick and efficient URL checking.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.querySelector('.url-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const url = document.querySelector('.url-input').value;
+            const resultDiv = document.getElementById('result');
+            const resultContent = resultDiv.querySelector('.result-content');
+            const threatTypeDiv = resultDiv.querySelector('.threat-type');
+            const confidenceDiv = resultDiv.querySelector('.confidence');
+
+            resultDiv.style.display = 'block';
+            resultContent.textContent = 'Analyzing...';
+            threatTypeDiv.textContent = '';
+            confidenceDiv.textContent = '';
+
+            try {
+                const response = await fetch('/predict', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ url }),
+                });
+
+                const data = await response.json();
+                
+                resultDiv.className = 'result';
+                resultDiv.classList.add(data.is_malicious ? 'malicious' : 'safe');
+                
+                // Set result message
+                resultContent.textContent = data.message;
+                
+                // Set threat type if malicious
+                if (data.is_malicious) {
+                    threatTypeDiv.textContent = `Threat Type: ${data.threat_type.charAt(0).toUpperCase() + data.threat_type.slice(1)}`;
+                    threatTypeDiv.style.display = 'block';
+                } else {
+                    threatTypeDiv.style.display = 'none';
+                }
+                
+                // Set confidence
+                confidenceDiv.textContent = `Confidence: ${(data.confidence * 100).toFixed(2)}%`;
+            } catch (error) {
+                resultDiv.className = 'result';
+                resultDiv.classList.add('malicious');
+                resultContent.textContent = 'Error analyzing URL';
+                threatTypeDiv.textContent = '';
+                confidenceDiv.textContent = '';
+            }
+        });
+    </script>
+</body>
+</html> 
